@@ -1,0 +1,33 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform lock file (optional to ignore, but many keep it)
+.terraform.lock.hcl
+
+# Terraform directory
+.terraform/
+
+# Variable files (may contain secrets)
+*.tfvars
+*.tfvars.json
+
+# Crash logs
+crash.log
+
+# Sensitive override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration
+.terraformrc
+terraform.rc
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables
+.env

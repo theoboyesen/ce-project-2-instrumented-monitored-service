@@ -9,7 +9,15 @@ from flask import g
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("order-api")
 
-from flask import g
+
+# file logging setup
+file_handler = logging.FileHandler("/var/log/order-api.log")
+file_handler.setLevel(logging.INFO)
+
+formatter = logging.Formatter('%(message)s')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 def log_json(level, event, **kwargs):
     log_entry = {
@@ -26,6 +34,8 @@ def log_json(level, event, **kwargs):
         logger.warning(json.dumps(log_entry))
     elif level == "ERROR":
         logger.error(json.dumps(log_entry))
+
+
 
 app = Flask(__name__)
 
