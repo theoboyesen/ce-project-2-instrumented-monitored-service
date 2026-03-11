@@ -59,6 +59,8 @@ resource "aws_instance" "order_api_instance" {
 
   vpc_security_group_ids = [aws_security_group.order_api_sg.id]
 
+  iam_instance_profile = aws_iam_instance_profile.ec2_cloudwatch_profile.name
+
   tags = {
     Name = "order-api-instance"
   }
@@ -67,4 +69,31 @@ resource "aws_instance" "order_api_instance" {
 resource "aws_key_pair" "observability_key" {
   key_name   = "observability-key"
   public_key = file("observability-key.pub")
+}
+
+resource "aws_iam_role" "ec2_cloudwatch_role" {
+  name = "ec2-cloudwatch-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "cloudwatch_agent_policy" {
+  role       = aws_iam_role.ec2_cloudwatch_role.name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+}
+
+resource "aws_iam_instance_profile" "ec2_cloudwatch_profile" {
+  name = "ec2-cloudwatch-profile"
+  role = aws_iam_role.ec2_cloudwatch_role.name
 }

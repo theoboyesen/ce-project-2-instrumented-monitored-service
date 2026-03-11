@@ -7,10 +7,9 @@ from datetime import datetime
 from flask import g
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("order-api")
 
+logger = logging.getLogger()
 
-# file logging setup
 file_handler = logging.FileHandler("/var/log/order-api.log")
 file_handler.setLevel(logging.INFO)
 
