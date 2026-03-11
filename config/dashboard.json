@@ -1,0 +1,78 @@
+{
+  "widgets": [
+    {
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 1,
+      "properties": {
+        "markdown": "# Order API Monitoring Dashboard"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 1,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Orders Created",
+        "metrics": [
+          ["OrderAPI", "orders_created_total"]
+        ],
+        "period": 60,
+        "stat": "Sum",
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 1,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "API Errors",
+        "metrics": [
+          ["OrderAPI", "api_errors_total"]
+        ],
+        "period": 60,
+        "stat": "Sum",
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 7,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Orders Retrieved",
+        "metrics": [
+          ["OrderAPI", "orders_retrieved_total"]
+        ],
+        "period": 60,
+        "stat": "Sum",
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 7,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "EC2 CPU Utilization",
+        "metrics": [
+          ["AWS/EC2", "CPUUtilization"]
+        ],
+        "period": 60,
+        "stat": "Average",
+        "region": "eu-west-2"
+      }
+    }
+  ]
+}
