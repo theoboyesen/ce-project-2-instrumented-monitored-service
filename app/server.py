@@ -55,7 +55,7 @@ def start_timer():
 # Log request latency
 @app.after_request
 def log_request_latency(response):
-    duration_ms = (time.time() - g.start_time) * 1000
+    duration_ms = ((time.time() - g.start_time) * 1000, 1)
 
     log_json(
         "INFO",
