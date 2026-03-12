@@ -1,0 +1,12 @@
+{
+  "AlarmName": "api-errors-high",
+  "Namespace": "OrderAPI",
+  "MetricName": "api_errors_total",
+  "Statistic": "Sum",
+  "Period": 60,
+  "EvaluationPeriods": 1,
+  "Threshold": 5,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmDescription": "High API error rate detected"
+}

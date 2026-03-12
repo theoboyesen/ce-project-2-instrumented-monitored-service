@@ -1,0 +1,12 @@
+{
+  "AlarmName": "api-latency-high",
+  "Namespace": "OrderAPI",
+  "MetricName": "request_latency_ms",
+  "Statistic": "Average",
+  "Period": 60,
+  "EvaluationPeriods": 1,
+  "Threshold": 500,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmDescription": "API latency above 500ms"
+}

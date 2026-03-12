@@ -1,0 +1,18 @@
+{
+  "AlarmName": "cpu-utilization-high",
+  "Namespace": "AWS/EC2",
+  "MetricName": "CPUUtilization",
+  "Statistic": "Average",
+  "Period": 60,
+  "EvaluationPeriods": 2,
+  "Threshold": 80,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "Dimensions": [
+    {
+      "Name": "InstanceId",
+      "Value": "i-064f2ffefb78dca36"
+    }
+  ],
+  "TreatMissingData": "notBreaching",
+  "AlarmDescription": "EC2 CPU utilization above 80%"
+}

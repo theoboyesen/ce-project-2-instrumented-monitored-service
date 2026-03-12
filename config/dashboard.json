@@ -10,6 +10,36 @@
         "markdown": "# Order API Monitoring Dashboard"
       }
     },
+{
+  "type": "text",
+  "x": 0,
+  "y": 1,
+  "width": 24,
+  "height": 1,
+  "properties": {
+    "markdown": "## Traffic & Business Metrics"
+  }
+},
+{
+  "type": "text",
+  "x": 0,
+  "y": 8,
+  "width": 24,
+  "height": 1,
+  "properties": {
+    "markdown": "## Errors & Latency"
+  }
+},
+{
+  "type": "text",
+  "x": 0,
+  "y": 15,
+  "width": 24,
+  "height": 1,
+  "properties": {
+    "markdown": "## Infrastructure Metrics"
+  }
+},
     {
       "type": "metric",
       "x": 0,
@@ -27,21 +57,22 @@
       }
     },
     {
-      "type": "metric",
-      "x": 12,
-      "y": 1,
-      "width": 12,
-      "height": 6,
-      "properties": {
-        "title": "API Errors",
-        "metrics": [
-          ["OrderAPI", "api_errors_total"]
-        ],
-        "period": 60,
-        "stat": "Sum",
-        "region": "eu-west-2"
-      }
-    },
+  "type": "metric",
+  "x": 12,
+  "y": 3,
+  "width": 12,
+  "height": 5,
+  "properties": {
+    "title": "API Errors",
+    "metrics": [
+      ["OrderAPI", "api_errors_total"]
+    ],
+    "view": "singleValue",
+    "stat": "Sum",
+    "period": 60,
+    "region": "eu-west-2"
+  }
+},
     {
       "type": "metric",
       "x": 0,
@@ -65,14 +96,62 @@
       "width": 12,
       "height": 6,
       "properties": {
-        "title": "EC2 CPU Utilization",
+        "title": "API Latency",
         "metrics": [
-          ["AWS/EC2", "CPUUtilization"]
+          ["OrderAPI", "request_latency_ms"]
         ],
         "period": 60,
         "stat": "Average",
         "region": "eu-west-2"
       }
-    }
+    },
+    {
+  "type": "metric",
+  "x": 0,
+  "y": 13,
+  "width": 24,
+  "height": 6,
+  "properties": {
+    "title": "EC2 CPU Utilization",
+    "metrics": [
+      ["AWS/EC2", "CPUUtilization", "InstanceId", "i-064f2ffefb78dca36"]
+    ],
+    "period": 60,
+    "stat": "Average",
+    "region": "eu-west-2"
+  }
+},
+    {
+  "type": "metric",
+  "x": 0,
+  "y": 19,
+  "width": 12,
+  "height": 6,
+  "properties": {
+    "title": "Memory Utilization",
+    "metrics": [
+      ["CWAgent", "mem_used_percent"]
+    ],
+    "stat": "Average",
+    "period": 60,
+    "region": "eu-west-2"
+  }
+},
+{
+  "type": "metric",
+  "x": 12,
+  "y": 19,
+  "width": 12,
+  "height": 6,
+  "properties": {
+    "title": "Disk Usage",
+    "metrics": [
+      ["CWAgent", "disk_used_percent"]
+    ],
+    "stat": "Average",
+    "period": 60,
+    "region": "eu-west-2"
+  }
+}
   ]
 }
